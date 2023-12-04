@@ -1,0 +1,31 @@
+---
+
+---
+
+<html lang='en'>
+	<head>
+		<meta charset='utf-8' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class=''>
+		<div
+			class='min-h-screen flex justify-center items-center text-white text-[70px] font-bold text-center overflow-hidden'
+		>
+			<div class='container'>
+				<h1 id='text'></h1>
+			</div>
+		</div>
+
+		<script>
+			// setTimeout(() => {
+			// 	window.close()
+			// }, 4000)
+			window.addEventListener('storage', () => {
+				window.close()
+			})
+		</script>
+	</body>
+</html>

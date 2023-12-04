@@ -2,15 +2,46 @@
 
 ---
 
-<html lang="en">
+<html lang='en'>
 	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
+		<meta charset='utf-8' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<div class='min-h-screen flex items-center py-40 px-10 bg-black text-white'>
+			<div class='container'>
+				<h1 class='text-[120px] leading-tight font-bold'>
+					Devs like<br />
+					 a Bomber!
+				</h1>
+
+				<div class='flex gap-10 mt-20'>
+					<span class='self-end mr-auto text-2xl'>Make your choice...</span>
+					<div
+						id='expensive'
+						class='p-8 border rounded-xl hover:scale-105 transition-transform origin-bottom-right cursor-pointer'
+					>
+						<p class='text-2xl'>Join the academy</p>
+						<span class='text-[50px]'>
+							25M$ / <span class='text-sm'>month</span>
+						</span>
+					</div>
+					<div
+						id='gratis'
+						class='p-8 border border-lime-300 text-lime-300 rounded-xl hover:scale-105 transition-transform origin-bottom-right cursor-pointer'
+					>
+						<p class='text-2xl'>start</p>
+						<span class='text-[50px]'>
+							FREE <span class='text-sm'>1 month</span>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src='../scripts/app.js'></script>
 	</body>
 </html>
