@@ -1,0 +1,56 @@
+---
+
+---
+
+<html lang='en'>
+	<head>
+		<meta charset='utf-8' />
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+		<meta name='viewport' content='width=device-width' />
+		<meta name='generator' content={Astro.generator} />
+		<title>Astro</title>
+	</head>
+	<body class=''>
+		<script>
+			// setTimeout(() => {
+			// 	window.close()
+			// }, 20000)
+
+			const shadowIndex = localStorage.getItem('shadows').split(',').length - 1
+			// document.body.innerHTML = shadowIndex + ''
+
+			window.addEventListener('storage', (e) => {
+				// const i = Number(localStorage.getItem('i'))
+				// console.log(i)
+				if (e.key === 'i') {
+					// if (shadowIndex == i) {
+					// const coord = localStorage.getItem('position').split(',')
+					const coords = JSON.parse(localStorage.getItem('positions'))[
+						shadowIndex
+					]
+
+					// const i = shadowIndex * 2
+					// const x = Number(coords[i])
+					// const y = Number(coords[i + 1])
+
+					const [x, y] = coords
+					console.log(x, y)
+
+					// const x = Number(localStorage.getItem('x'))
+					// const y = Number(localStorage.getItem('y'))
+					// const [x, y] = coord
+					// window.blur()
+
+					if (!x || !y) return
+					setTimeout(() => {
+						window.moveTo(Number(x), Number(y))
+					}, 60 - shadowIndex)
+					// }
+				}
+				if (e.key === 'close') {
+					window.close()
+				}
+			})
+		</script>
+	</body>
+</html>

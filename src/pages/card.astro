@@ -9,23 +9,42 @@
 		<meta name='viewport' content='width=device-width' />
 		<meta name='generator' content={Astro.generator} />
 		<title>Astro</title>
-	</head>
-	<body class=''>
-		<div
-			class='min-h-screen flex justify-center items-center text-white text-[70px] font-bold text-center overflow-hidden'
-		>
-			<div class='container'>
-				<h1 id='text'></h1>
-			</div>
-		</div>
-
 		<script>
 			// setTimeout(() => {
 			// 	window.close()
-			// }, 4000)
-			window.addEventListener('storage', () => {
-				window.close()
+			// }, 20000)
+			window.addEventListener('storage', (e) => {
+				if (e.key === 'position') {
+					const coords = localStorage.getItem('position').split(',')
+					// const x = Number(localStorage.getItem('x'))
+					// const y = Number(localStorage.getItem('y'))
+					const [x, y] = coords
+					window.focus()
+					window.moveTo(Number(x), Number(y))
+					window.document.body.click()
+				}
+
+				if (e.key === 'close') {
+					window.close()
+				}
 			})
 		</script>
+	</head>
+	<body class=''>
+		<div
+			class='min-h-screen flex justify-center items-center text-white bg-lime-600 text-[70px] font-bold text-center overflow-hidden'
+		>
+			<div class='container'>
+				<div class='flex justify-center'>
+					<img
+						id='card'
+						src='/k-di-cuori.png'
+						alt=''
+						width='250'
+						class='shadow-lg rounded-lg'
+					/>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>
