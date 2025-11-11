@@ -5,7 +5,7 @@ const vel = {
 
 const gravity = {
 	x: 0,
-	y: 1400,
+	y: 1600,
 }
 
 const position = {
@@ -18,6 +18,7 @@ const position = {
 let T = 0
 
 const card = document.getElementById('card')
+
 let cardW
 
 const windowsNumber = 60
@@ -69,10 +70,11 @@ function update(t = 0) {
 		return
 	}
 
-	// if (cardW) {
-	// 	window.blur()
-	// 	cardW.focus()
-	// }
+	if (cardW) {
+		// window.blur()
+		// console.log('focus', cardW.focus())
+		cardW.focus()
+	}
 
 	vel.y += gravity.y * dt
 	vel.x += dt
@@ -134,7 +136,9 @@ card.addEventListener('click', (e) => {
 	let i = setInterval(() => {
 		if (shadows.length >= windowsNumber) {
 			clearInterval(i)
-			openWindow('/card', w, h - 60, x, y)
+
+			cardW = openWindow('/card', w, h - 60, x, y)
+			console.log('window card', cardW)
 			reset()
 			requestAnimationFrame(update)
 			pause = false
@@ -145,7 +149,7 @@ card.addEventListener('click', (e) => {
 		localStorage.setItem('shadows', shadows)
 
 		openWindow('/card-shadow', w, h - 60, x, y)
-	}, 20)
+	}, 100)
 
 	// console.log(localStorage.getItem('shadows').split(','))
 
@@ -185,7 +189,7 @@ function reset() {
 
 	vel.y = -100
 	vel.x = Math.random() * 2 - 1
-	vel.x *= 700
+	vel.x *= 900
 
 	if (vel.x > 0) {
 		vel.x = Math.max(vel.x, 300)
@@ -216,7 +220,7 @@ function openWindow(url = '/temp', w, h, x, y) {
 	const wind = window.open(
 		url,
 		'_blank',
-		`popup=1,width=${w},height=${h},left=${x},top=${y},noopener=1,noreferrer=1,`
+		`popup=1,width=${w},height=${h},left=${x},top=${y}`
 	)
 
 	return wind
